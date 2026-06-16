@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shri Ambabhavani Temple Dashboard — Snapshot 16/6/2026, 12:08:09 pm</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet"/>
+<style>
+:root { --ivory: #FAF7F2; --ivory2: #F4EFE6; --ivory3: #EDE5D8; --saffron: #C8620A; --saffron2: #E07820; --saffron3: #F5A64A; --saffron-bg: #FFF3E6; --navy: #1B2A4A; --navy2: #243660; --navy3: #2E4380; --gold: #B8860B; --gold2: #D4A017; --gold3: #F0C040; --green: #1A6B3C; --green-bg: #E8F5EE; --red: #B91C1C; --red-bg: #FEE2E2; --blue: #1D4ED8; --blue-bg: #EFF6FF; --amber: #D97706; --amber-bg: #FFFBEB; --text: #1A1209; --text2: #4A3728; --text3: #7A6555; --border: rgba(184,134,11,0.2); --shadow: 0 4px 24px rgba(28,20,10,0.08); --shadow-lg: 0 8px 40px rgba(28,20,10,0.12); }
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+body { background: var(--ivory); font-family: "DM Sans", sans-serif; color: var(--text); min-height: 100vh; }
+body::before { content: ""; position: fixed; inset: 0px; pointer-events: none; z-index: 0; background-image: radial-gradient(circle at 1px 1px, rgba(184, 134, 11, 0.06) 1px, transparent 0px); background-size: 28px 28px; }
+.wrap { position: relative; z-index: 1; }
+.hdr { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 40%, #1A2238 100%); position: relative; overflow: hidden; }
+.hdr::before { content: ""; position: absolute; inset: 0px; background: radial-gradient(at 30% 50%, rgba(200, 98, 10, 0.18) 0%, transparent 60%), radial-gradient(at 70% 50%, rgba(240, 192, 64, 0.1) 0%, transparent 60%); }
+.hdr::after { content: ""; position: absolute; bottom: 0px; left: 0px; right: 0px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold3), var(--saffron2), var(--gold3), transparent); }
+.hdr-inner { max-width: 1440px; margin: 0px auto; padding: 24px 32px; display: flex; align-items: center; gap: 20px; position: relative; z-index: 1; }
+.hdr-emblem { width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg,var(--gold2),var(--gold3),var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: rgba(240, 192, 64, 0.3) 0px 0px 0px 3px, rgba(0, 0, 0, 0.3) 0px 4px 20px; }
+.hdr-title { flex: 1 1 0%; text-align: center; }
+.hdr-title h1 { font-family: "DM Sans", sans-serif; font-size: clamp(13px, 1.8vw, 21px); font-weight: 700; color: rgb(245, 234, 200); letter-spacing: 0.06em; line-height: 1.45; }
+.hdr-title h1 span { color: var(--gold3); }
+.hdr-title p { font-size: 11px; color: rgba(245, 234, 200, 0.55); margin-top: 5px; letter-spacing: 0.15em; text-transform: uppercase; }
+.hdr-actions { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+.btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: 10px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.22s; letter-spacing: 0.02em; white-space: nowrap; }
+.btn-upload { background: linear-gradient(135deg,var(--gold),var(--gold2)); color: var(--navy); box-shadow: rgba(184, 134, 11, 0.4) 0px 3px 14px; }
+.btn-upload:hover { transform: translateY(-2px); box-shadow: rgba(184, 134, 11, 0.5) 0px 6px 20px; }
+.btn-pdf { background: linear-gradient(135deg,var(--saffron),var(--saffron2)); color: rgb(255, 255, 255); box-shadow: rgba(200, 98, 10, 0.35) 0px 3px 14px; }
+.btn-pdf:hover { transform: translateY(-2px); box-shadow: rgba(200, 98, 10, 0.45) 0px 6px 20px; }
+.btn-jpg { background: linear-gradient(135deg,var(--navy2),var(--navy3)); color: rgb(245, 234, 200); border: 1px solid rgba(240, 192, 64, 0.25); box-shadow: rgba(27, 42, 74, 0.3) 0px 3px 14px; }
+.btn-jpg:hover { transform: translateY(-2px); box-shadow: rgba(27, 42, 74, 0.4) 0px 6px 20px; }
+.btn-save { background: linear-gradient(135deg,var(--green),#2ECC71); color: rgb(255, 255, 255); box-shadow: rgba(26, 107, 60, 0.35) 0px 3px 14px; }
+.btn-save:hover { transform: translateY(-2px); box-shadow: rgba(26, 107, 60, 0.45) 0px 6px 20px; }
+#fileInput { display: none; }
+.main { max-width: 1440px; margin: 0px auto; padding: 32px 28px 56px; }
+#uploadState { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 62vh; gap: 18px; text-align: center; }
+.upload-ring { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg,var(--ivory2),var(--ivory3)); border: 2px dashed var(--gold2); display: flex; align-items: center; justify-content: center; font-size: 48px; cursor: pointer; transition: 0.3s; box-shadow: var(--shadow); }
+.upload-ring:hover { border-color: var(--saffron); transform: scale(1.04); }
+#uploadState h2 { font-family: "DM Sans", sans-serif; font-size: 22px; color: var(--navy); font-weight: 600; }
+#uploadState p { color: var(--text3); font-size: 14px; max-width: 400px; line-height: 1.6; }
+#dash { display: none; }
+.sec-lbl { font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 600; color: var(--navy); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.sec-lbl::after { content: ""; flex: 1 1 0%; height: 1px; background: linear-gradient(to right,var(--border),transparent); }
+.kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+@media (max-width: 1000px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+}
+.kpi { background: rgb(255, 255, 255); border-radius: 16px; padding: 20px 18px; border: 1px solid var(--border); box-shadow: var(--shadow); position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.kpi:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.kpi::before { content: ""; position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: var(--ka); }
+.kpi-icon { font-size: 26px; margin-bottom: 8px; }
+.kpi-lbl { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 4px; font-weight: 500; }
+.kpi-val { font-family: "DM Sans", sans-serif; font-size: 20px; font-weight: 700; color: var(--kc); }
+.bank-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 28px; }
+@media (max-width: 800px) {
+  .bank-grid { grid-template-columns: 1fr; }
+}
+.bcard { border-radius: 20px; padding: 24px 22px; border: 1px solid; position: relative; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+.bcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.bcard.herga { background: linear-gradient(140deg, rgb(255, 251, 240) 0%, rgb(255, 243, 208) 100%); border-color: rgba(184, 134, 11, 0.3); }
+.bcard.sbi { background: linear-gradient(140deg, rgb(240, 245, 255) 0%, rgb(221, 232, 255) 100%); border-color: rgba(29, 78, 216, 0.25); }
+.bcard.net { background: linear-gradient(140deg, rgb(240, 255, 246) 0%, rgb(212, 240, 226) 100%); border-color: rgba(26, 107, 60, 0.25); }
+.bcard::before { content: ""; position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: var(--ba); }
+.bcard-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.bcard-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; font-family: "DM Sans", sans-serif; background: var(--bi-bg); color: var(--bi-c); border: 1.5px solid var(--bi-b); }
+.bcard-name { font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 700; color: var(--bn-c); }
+.bcard-sub { font-size: 10px; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.bcard-bal { font-family: "DM Sans", sans-serif; font-size: 28px; font-weight: 700; color: var(--bb-c); margin-bottom: 16px; }
+.bcard-rows { display: flex; flex-direction: column; gap: 7px; }
+.brow { display: flex; justify-content: space-between; align-items: center; padding: 7px 11px; border-radius: 9px; background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(0, 0, 0, 0.05); font-size: 12.5px; }
+.brow-k { color: var(--text3); }
+.brow-v { font-weight: 700; }
+.brow-v.pos { color: var(--green); }
+.brow-v.neg { color: var(--red); }
+.brow-v.neu { color: var(--navy); }
+.charges-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+@media (max-width: 700px) {
+  .charges-grid { grid-template-columns: 1fr; }
+}
+.chg-card { background: rgb(255, 255, 255); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.chg-head { padding: 13px 18px; background: linear-gradient(135deg,var(--navy),var(--navy2)); font-family: "DM Sans", sans-serif; font-size: 13px; color: rgb(245, 234, 200); letter-spacing: 0.06em; }
+.chg-card table { width: 100%; border-collapse: collapse; }
+.chg-card td { padding: 9px 16px; font-size: 12.5px; border-bottom: 1px solid rgba(184, 134, 11, 0.08); }
+.chg-card tr:last-child td { border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; }
+.chg-card td:last-child { text-align: right; font-weight: 700; }
+.chg-card td.cr { color: var(--green); }
+.chg-card td.dr { color: var(--red); }
+.chg-card .no-data { padding: 14px 16px; color: var(--text3); font-size: 12px; text-align: center; }
+.tbl-wrap { background: rgb(255, 255, 255); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 28px; }
+.tbl-toolbar { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid rgba(184, 134, 11, 0.1); background: linear-gradient(135deg,var(--ivory2),var(--ivory)); }
+.srch { background: rgb(255, 255, 255); border: 1.5px solid var(--border); border-radius: 9px; padding: 8px 13px; color: var(--text); font-family: "DM Sans", sans-serif; font-size: 13px; outline: none; width: 250px; }
+.srch:focus { border-color: var(--gold2); }
+.tx-ct { font-size: 12px; color: var(--text3); }
+.tbl-scroll { overflow-x: auto; }
+table.main-tbl { width: 100%; border-collapse: collapse; }
+table.main-tbl thead tr { background: linear-gradient(135deg,var(--navy),var(--navy2)); }
+table.main-tbl thead th { padding: 12px 13px; text-align: left; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase; color: rgb(245, 234, 200); font-weight: 600; cursor: pointer; white-space: nowrap; }
+table.main-tbl thead th:hover { color: var(--gold3); }
+table.main-tbl tbody tr { border-bottom: 1px solid rgba(184, 134, 11, 0.07); transition: background 0.15s; }
+table.main-tbl tbody tr:hover { background: var(--saffron-bg); }
+table.main-tbl tbody tr:nth-child(2n) { background: var(--ivory); }
+table.main-tbl tbody tr:nth-child(2n):hover { background: var(--saffron-bg); }
+table.main-tbl td { padding: 10px 13px; font-size: 12.5px; }
+td.dt { color: var(--text3); white-space: nowrap; font-size: 11.5px; }
+td.amt { text-align: right; font-weight: 700; white-space: nowrap; }
+td.amt.inc { color: var(--green); }
+td.amt.exp { color: var(--red); }
+td.amt.dep { color: var(--blue); }
+td.amt.wd { color: var(--amber); }
+td.part { max-width: 260px; }
+.badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.b-cash { background: rgb(236, 253, 245); color: rgb(6, 95, 70); border: 1px solid rgb(167, 243, 208); }
+.b-cheque { background: rgb(239, 246, 255); color: rgb(30, 64, 175); border: 1px solid rgb(191, 219, 254); }
+.b-upi { background: rgb(255, 247, 237); color: rgb(194, 65, 12); border: 1px solid rgb(254, 215, 170); }
+.b-herga { background: rgb(255, 251, 235); color: rgb(146, 64, 14); border: 1px solid rgb(253, 230, 138); }
+.b-sbi { background: rgb(239, 246, 255); color: rgb(29, 78, 216); border: 1px solid rgb(191, 219, 254); }
+.pg { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 14px; }
+.pg-btn { background: var(--ivory2); border: 1.5px solid var(--border); color: var(--navy); border-radius: 7px; padding: 6px 12px; cursor: pointer; font-size: 12px; transition: 0.2s; }
+.pg-btn:hover, .pg-btn.act { background: var(--navy); color: rgb(245, 234, 200); border-color: var(--navy); }
+.pg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.dash-footer { text-align: center; font-size: 11.5px; color: var(--text3); padding: 10px; letter-spacing: 0.06em; }
+#loader { display: none; position: fixed; inset: 0px; z-index: 9999; background: rgba(250, 247, 242, 0.88); backdrop-filter: blur(6px); align-items: center; justify-content: center; flex-direction: column; gap: 14px; }
+#loader.on { display: flex; }
+.spin { width: 44px; height: 44px; border-radius: 50%; border-width: 3px; border-style: solid; border-right-color: rgba(184, 134, 11, 0.15); border-bottom-color: rgba(184, 134, 11, 0.15); border-left-color: rgba(184, 134, 11, 0.15); border-image: initial; border-top-color: var(--gold2); animation: 0.75s linear 0s infinite normal none running sp; }
+@keyframes sp { 
+  100% { transform: rotate(360deg); }
+}
+#loader p { color: var(--navy); font-family: "DM Sans", sans-serif; font-size: 14px; letter-spacing: 0.08em; }
+
+#uploadState{display:none!important;}#dash{display:block!important;}#btnSave{display:none!important;}#btnPdf{display:none!important;}#btnJpg{display:none!important;}.snapshot-badge{display:inline-flex!important;}</style>
+</head>
+<body>
+<div id="loader"><div class="spin"></div><p id="loader-msg">Processing…</p></div>
+<div class="wrap">
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-emblem">🛕</div>
+    <div class="hdr-title">
+      <h1>SHRI AMBABHAVANI TEMPLE REGISTERED<br><span>RENOVATION ACCOUNT DASHBOARD</span> — UDUPI 576107</h1>
+      <p id="hdr-sub">Last updated: 16/6/2026, 12:07:13 pm • Source: FORMAT FOR CLUDE HTML.xlsx</p>
+    </div>
+    <div class="hdr-actions">
+      <span class="btn snapshot-badge" style="background:linear-gradient(135deg,var(--green),#2ECC71);color:#fff;cursor:default">✅ Saved Snapshot</span>
+    </div>
+  </div>
+</header>
+<div class="main">
+<div id="dash">
+<div class="sec-lbl">📊 Financial Summary</div><div class="kpi-grid" id="kpiGrid"><div class="kpi" style="--ka:linear-gradient(90deg,var(--gold),var(--gold2));--kc:var(--green)"><div class="kpi-icon">💵</div><div class="kpi-lbl">Cash in Hand</div><div class="kpi-val">₹11,000.00</div></div><div class="kpi" style="--ka:linear-gradient(90deg,#1A6B3C,#2ECC71);--kc:var(--green)"><div class="kpi-icon">📈</div><div class="kpi-lbl">Total Income</div><div class="kpi-val">₹5,15,550.00</div></div><div class="kpi" style="--ka:linear-gradient(90deg,#B91C1C,#EF4444);--kc:var(--red)"><div class="kpi-icon">📉</div><div class="kpi-lbl">Total Expense</div><div class="kpi-val">₹0.00</div></div><div class="kpi" style="--ka:linear-gradient(90deg,var(--navy),var(--navy3));--kc:var(--blue)"><div class="kpi-icon">🏦</div><div class="kpi-lbl">Total Bank Deposit</div><div class="kpi-val">₹5,04,550.00</div></div><div class="kpi" style="--ka:linear-gradient(90deg,var(--amber),#F59E0B);--kc:var(--amber)"><div class="kpi-icon">💸</div><div class="kpi-lbl">Bank Withdrawal</div><div class="kpi-val">₹0.00</div></div></div><div class="sec-lbl">🏦 Bank Account Balances</div><div class="bank-grid" id="bankGrid"><div class="bcard herga" style="--ba:linear-gradient(90deg,var(--gold),var(--gold2))"><div class="bcard-top"><div class="bcard-icon" style="background:rgba(184,134,11,0.12);color:var(--gold);border-color:rgba(184,134,11,0.3)">H</div><div><div class="bcard-name" style="color:var(--gold)">HERGA SOCIETY BANK</div><div class="bcard-sub">Net Balance (Deposits + Interest − Charges − Withdrawals)</div></div></div><div class="bcard-bal" style="color:var(--gold)">₹3,27,423.00</div><div class="bcard-rows"><div class="brow"><span class="brow-k">Total Deposits</span><span class="brow-v pos">₹3,27,338.00</span></div><div class="brow"><span class="brow-k">Total Withdrawals</span><span class="brow-v neg">₹0.00</span></div><div class="brow"><span class="brow-k">Bank Charges (deducted)</span><span class="brow-v neg">₹0.00</span></div><div class="brow"><span class="brow-k">Bank Interest (added)</span><span class="brow-v pos">+₹85.00</span></div></div></div><div class="bcard sbi" style="--ba:linear-gradient(90deg,var(--blue),var(--navy3))"><div class="bcard-top"><div class="bcard-icon" style="background:rgba(29,78,216,0.1);color:var(--blue);border-color:rgba(29,78,216,0.25)">S</div><div><div class="bcard-name" style="color:var(--blue)">STATE BANK OF INDIA</div><div class="bcard-sub">Net Balance (Deposits + Interest − Charges − Withdrawals)</div></div></div><div class="bcard-bal" style="color:var(--navy)">₹1,77,091.51</div><div class="bcard-rows"><div class="brow"><span class="brow-k">Total Deposits</span><span class="brow-v pos">₹1,77,212.00</span></div><div class="brow"><span class="brow-k">Total Withdrawals</span><span class="brow-v neg">₹0.00</span></div><div class="brow"><span class="brow-k">Bank Charges (deducted)</span><span class="brow-v neg">−₹120.49</span></div><div class="brow"><span class="brow-k">Bank Interest (added)</span><span class="brow-v pos">₹0.00</span></div></div></div><div class="bcard net" style="--ba:linear-gradient(90deg,var(--green),#2ECC71)"><div class="bcard-top"><div class="bcard-icon" style="background:rgba(26,107,60,0.1);color:var(--green);border-color:rgba(26,107,60,0.25)">∑</div><div><div class="bcard-name" style="color:var(--green)">TOTAL NET BALANCE</div><div class="bcard-sub">Herga Net + SBI Net + Cash in Hand</div></div></div><div class="bcard-bal" style="color:var(--green)">₹5,15,514.51</div><div class="bcard-rows"><div class="brow"><span class="brow-k">Herga Bank Net Balance</span><span class="brow-v neu">₹3,27,423.00</span></div><div class="brow"><span class="brow-k">State Bank Net Balance</span><span class="brow-v neu">₹1,77,091.51</span></div><div class="brow"><span class="brow-k">(+) Cash in Hand</span><span class="brow-v pos">₹11,000.00</span></div><div class="brow"><span class="brow-k">Total Net Balance</span><span class="brow-v pos">₹5,15,514.51</span></div></div></div></div><div class="sec-lbl">📋 Bank Charges & Interest</div><div class="charges-grid" id="chargesGrid"><div class="chg-card"><div class="chg-head">🏛 HERGA SOCIETY — Charges &amp; Interest</div><table><thead><tr><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Date</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Particular</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Mode</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3);text-align:right">Amount</th></tr></thead><tbody><tr><td>31 Mar 2026</td><td>Bank intrest</td><td>Credit</td><td class="cr">+₹85.00</td></tr></tbody></table></div><div class="chg-card"><div class="chg-head">🏦 STATE BANK — Charges &amp; Interest</div><table><thead><tr><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Date</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Particular</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3)">Mode</th><th style="padding:8px 16px;font-size:10.5px;color:var(--text3);text-align:right">Amount</th></tr></thead><tbody><tr><td>12 Mar 2026</td><td>AC Keeping Charges</td><td>Debit</td><td class="dr">−₹31.99</td></tr><tr><td>31 Mar 2026</td><td>Cheque book charge</td><td>Debit</td><td class="dr">−₹88.50</td></tr></tbody></table></div></div><div class="sec-lbl">📝 All Transactions <span style="font-size:11px;color:var(--text3);text-transform:none;letter-spacing:0;font-weight:400">(42 records)</span></div><div class="tbl-wrap"><div class="tbl-toolbar"><input class="srch" type="text" id="srchBox" placeholder="🔍 Search donor name to view transactions…" oninput="filterTbl()"/><span class="tx-ct" id="txCt">Search to view entries</span></div><div class="tbl-scroll"><table class="main-tbl" id="mainTbl"><thead><tr><th onclick="srt(0)">Date ↕</th><th onclick="srt(1)">Voucher</th><th onclick="srt(2)">Particulars</th><th onclick="srt(3)" style="text-align:right">Income (₹)</th><th onclick="srt(4)" style="text-align:right">Expense (₹)</th><th>Mode</th><th>Bank</th><th onclick="srt(7)" style="text-align:right">Deposit (₹)</th><th onclick="srt(8)" style="text-align:right">Withdrawal (₹)</th></tr></thead><tbody id="tblBody"><tr><td colspan="9" style="text-align:center;padding:24px;color:var(--text3)">Transactions are hidden. Search a donor name to view records.</td></tr></tbody></table></div><div class="pg" id="pgDiv"></div></div><div class="dash-footer" id="dashFtr">Dashboard generated on 16/6/2026, 12:07:13 pm • 42 transactions loaded</div>
+</div>
+</div>
+</div>
+<script>
+var allRows=[{"date":"16 Jan 2026","rawDate":"1/16/26","voucher":"1","part":"Herga society account opening-receipt by PRABHAKAR SHETTY deposit to herga society","inc":1000,"exp":0,"dep":1000,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"27 Jan 2026","rawDate":"1/27/26","voucher":"2","part":"Temple collection box amount received on 25-01-2026(prshna chinthana) deposited to herga society)","inc":15000,"exp":0,"dep":15000,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"05 Mar 2026","rawDate":"3/5/26","voucher":"3","part":"Remaining collection amount collected for kanike Hundi by HATTHU SAMASTHARU KABYADI DEPOSITED TO HERGA BANK","inc":2010,"exp":0,"dep":2010,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"08 Mar 2026","rawDate":"3/8/26","voucher":"4","part":"Received from SHUBHAKARA","inc":50000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"08 Mar 2026","rawDate":"3/8/26","voucher":"5","part":"Received from Prakash Shetty","inc":100000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"09 Mar 2026","rawDate":"3/9/26","voucher":"","part":"Bank deposit by Sukesh to SBI","inc":0,"exp":0,"dep":150000,"wd":0,"mode":"CASH","bank":"STATE BANK"},{"date":"09 Mar 2026","rawDate":"3/9/26","voucher":"6","part":"Ambabhavani Temple","inc":5000,"exp":0,"dep":5000,"wd":0,"mode":"CHEQUE","bank":"STATE BANK"},{"date":"03 Apr 2026","rawDate":"4/3/26","voucher":"7","part":"Prema V nayak NGO colony Saraswathi nagar Kabyadi","inc":5000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"04 Apr 2026","rawDate":"4/4/26","voucher":"","part":"Bank Deposit by Sukesh","inc":0,"exp":0,"dep":5000,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"17 Apr 2026","rawDate":"4/17/26","voucher":"8","part":"Donation/Shri Tulaja bhavani Hatthu samastharu kabyadi","inc":200000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"18 Apr 2026","rawDate":"4/18/26","voucher":"","part":"Bank Deposit by sukesh","inc":0,"exp":0,"dep":100000,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"21 Apr 2026","rawDate":"4/21/26","voucher":"","part":"Bank deposit/Sukesh","inc":0,"exp":0,"dep":100000,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"9","part":"Donation/Mahabal Naik priyanagara","inc":1000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"10","part":"Donation/Vinutha Venktesh and childdrens","inc":5555,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"11","part":"Donation/Anasuya sunil praveen kabyadi","inc":5000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"12","part":"Donation/Shri prasad G nayak Kabyadi","inc":5000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"13","part":"Donation/Upendra Prabhu Saraswathi nilaya kabyadi","inc":11111,"exp":0,"dep":11111,"wd":0,"mode":"UPI","bank":"STATE BANK"},{"date":"27 Apr 2026","rawDate":"4/27/26","voucher":"14","part":"Donation/Dwaraka flower stall parkala","inc":1000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"28 Apr 2026","rawDate":"4/28/26","voucher":"","part":"Bank deposit/Arun","inc":0,"exp":0,"dep":17555,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"05 May 2026","rawDate":"5/5/26","voucher":"26","part":"Prathvi/Prathijna","inc":101,"exp":0,"dep":101,"wd":0,"mode":"UPI","bank":"STATE BANK"},{"date":"08 May 2026","rawDate":"5/8/26","voucher":"15","part":"Hemalatha nayak Kukkudakatte","inc":10005,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"08 May 2026","rawDate":"5/8/26","voucher":"16","part":"Damayanthi Kukkudakatte","inc":5000,"exp":0,"dep":5000,"wd":0,"mode":"UPI","bank":"STATE BANK"},{"date":"09 May 2026","rawDate":"5/9/26","voucher":"17","part":"Shri Ganapathi Sulochana nayak Aalambi","inc":5501,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"11 May 2026","rawDate":"5/11/26","voucher":"","part":"Bank Deposit/Sukesh","inc":0,"exp":0,"dep":15506,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"12 May 2026","rawDate":"5/12/26","voucher":"18","part":"Shri Padmvathi Madhukar Nayak Kaivalya nagara kabyadi/Shri mathi Sandhya nayak madaga","inc":5001,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"14 May 2026","rawDate":"5/14/26","voucher":"19","part":"Shrimathi Shashikala Dveendra naik thatturu,Padu athrady","inc":25101,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"14 May 2026","rawDate":"5/14/26","voucher":"20","part":"Umesh nayak thatturu Padu athrady","inc":1000,"exp":0,"dep":1000,"wd":0,"mode":"UPI","bank":"STATE BANK"},{"date":"14 May 2026","rawDate":"5/14/26","voucher":"20","part":"Umesh nayak thatturu Padu Athrady","inc":1,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"14 May 2026","rawDate":"5/14/26","voucher":"21","part":"Sumanth Nayak Thattur","inc":1001,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"15 May 2026","rawDate":"5/15/26","voucher":"","part":"Bank Deposit/Sukesh","inc":0,"exp":0,"dep":30103,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"15 May 2026","rawDate":"5/15/26","voucher":"22","part":"Girija prabhu kabyadi","inc":5555,"exp":0,"dep":5555,"wd":0,"mode":"CHEQUE","bank":"HERGA SOCIETY"},{"date":"16 May 2026","rawDate":"5/16/26","voucher":"23","part":"Revathi and Vasu naik isha krupa kabyadi","inc":5051,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"18 May 2026","rawDate":"5/18/26","voucher":"","part":"Bank Deposit/Sukesh","inc":0,"exp":0,"dep":6052,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"27 May 2026","rawDate":"5/27/26","voucher":"27","part":"Satheesh Nayak Parkala","inc":5000,"exp":0,"dep":5000,"wd":0,"mode":"UPI","bank":"STATE BANK"},{"date":"30 May 2026","rawDate":"5/30/26","voucher":"24","part":"Devdas and Veena naik Onthibettu","inc":4001,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"01 Jun 2026","rawDate":"6/1/26","voucher":"25","part":"Asha Dayananda naik","inc":10001,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"02 Jun 2026","rawDate":"6/2/26","voucher":"","part":"Bank Deposit/Sukesh","inc":0,"exp":0,"dep":14002,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"04 Jun 2026","rawDate":"6/4/26","voucher":"30","part":"Suresh Shettigar Sannakibettu","inc":5000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"04 Jun 2026","rawDate":"6/4/26","voucher":"29","part":"Jagadeesh naik isha krupa road kabyadi","inc":5000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"05 Jun 2026","rawDate":"6/5/26","voucher":"28","part":"Shri Mahadeva Nayak Vishnu nagar thattur","inc":5555,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""},{"date":"06 Jun 2026","rawDate":"6/6/26","voucher":"","part":"Bank deposit/Sukesh","inc":0,"exp":0,"dep":15555,"wd":0,"mode":"CASH","bank":"HERGA SOCIETY"},{"date":"06 Dec 2026","rawDate":"12/6/26","voucher":"31","part":"Sundari shetty and family kabyadi padumane","inc":11000,"exp":0,"dep":0,"wd":0,"mode":"CASH","bank":""}];
+var chargesData=[{"date":"12 Mar 2026","part":"AC Keeping Charges","mode":"Debit","herga":0,"sbi":31.99},{"date":"31 Mar 2026","part":"Cheque book charge","mode":"Debit","herga":0,"sbi":88.5},{"date":"31 Mar 2026","part":"Bank intrest","mode":"Credit","herga":85,"sbi":0}];
+var filtRows=allRows.slice(), sortCol=0, sortDir=1;
+var PAGE=9999;
+function rupee(v){return "\u20B9"+Math.abs(v).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function escHtml(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function trunc(s,n){return s.length>n?s.slice(0,n)+"\u2026":s;}
+function modeBadge(m){
+  if(!m||m==="\u2014")return "<span style=\"color:var(--text3)\">\u2014</span>";
+  var u=m.toUpperCase();
+  var cl=u.includes("CASH")?"b-cash":u.includes("CHEQUE")?"b-cheque":u.includes("UPI")?"b-upi":"b-cash";
+  return "<span class=\"badge "+cl+"\">"+escHtml(m)+"</span>";
+}
+function bankBadge(b){
+  if(!b)return "\u2014";
+  var u=b.toUpperCase();
+  var cl=u.includes("HERGA")?"b-herga":u.includes("STATE")||u.includes("SBI")?"b-sbi":"";
+  return cl?"<span class=\"badge "+cl+"\">"+escHtml(b)+"</span>":escHtml(b);
+}
+function renderTbl(){
+  var q=(document.getElementById("srchBox")||{value:""}).value.trim().toLowerCase();
+  var tb=document.getElementById("tblBody");
+  var ct=document.getElementById("txCt");
+  if(!tb)return;
+  if(!q){
+    if(ct)ct.textContent=allRows.length+" entries";
+    tb.innerHTML="<tr><td colspan=\"9\" style=\"text-align:center;padding:24px;color:var(--text3)\">Transactions are hidden. Search a donor name to view records.</td></tr>";
+    return;
+  }
+  filtRows=allRows.filter(function(r){
+    return r.part.toLowerCase().includes(q)||r.date.toLowerCase().includes(q)||
+           r.mode.toLowerCase().includes(q)||r.bank.toLowerCase().includes(q)||
+           String(r.voucher).toLowerCase().includes(q);
+  });
+  var k=["rawDate","voucher","part","inc","exp","mode","bank","dep","wd"];
+  filtRows.sort(function(a,b){
+    var av=a[k[sortCol]],bv=b[k[sortCol]];
+    if(typeof av==="string")av=av.toLowerCase();
+    if(typeof bv==="string")bv=bv.toLowerCase();
+    return sortDir*(av>bv?1:av<bv?-1:0);
+  });
+  if(ct)ct.textContent=filtRows.length+" of "+allRows.length+" entries";
+  tb.innerHTML=filtRows.length
+    ? filtRows.map(function(r){
+        return "<tr>"+
+          "<td class=\"dt\">"+r.date+"</td>"+
+          "<td style=\"color:var(--text3);font-size:11.5px\">"+escHtml(String(r.voucher))+"</td>"+
+          "<td class=\"part\" title=\""+escHtml(r.part)+"\">"+escHtml(trunc(r.part,58))+"</td>"+
+          "<td class=\"amt inc\">"+(r.inc>0?rupee(r.inc):"\u2014")+"</td>"+
+          "<td class=\"amt exp\">"+(r.exp>0?rupee(r.exp):"\u2014")+"</td>"+
+          "<td>"+modeBadge(r.mode)+"</td>"+
+          "<td>"+bankBadge(r.bank)+"</td>"+
+          "<td class=\"amt dep\">"+(r.dep>0?rupee(r.dep):"\u2014")+"</td>"+
+          "<td class=\"amt wd\">"+(r.wd>0?rupee(r.wd):"\u2014")+"</td>"+
+          "</tr>";
+      }).join("")
+    : "<tr><td colspan=\"9\" style=\"text-align:center;padding:24px;color:var(--text3)\">No transactions found for this search.</td></tr>";
+}
+function filterTbl(){renderTbl();}
+function srt(col){
+  if(sortCol===col)sortDir*=-1; else{sortCol=col;sortDir=1;}
+  renderTbl();
+}
+function setLoader(){}
+document.addEventListener("DOMContentLoaded",function(){
+  var sb=document.getElementById("srchBox");
+  if(sb)sb.addEventListener("input",filterTbl);
+});
+</script>
+</body>
+</html>
